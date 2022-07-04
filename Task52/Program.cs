@@ -5,7 +5,7 @@ int[,] array = new int[vertical, gorizontal];
 FillArray(array);
 PrintArray(array);
 Console.WriteLine();
-PrintColumnsAverageSum(array);
+PrintColumnsAverageSums(array);
 
 void FillArray(int [,] a)
 {
@@ -51,17 +51,21 @@ void PrintArray(int [,] a)
     }
 }
 
-void PrintColumnsAverageSum(int [,] a)
+void PrintColumnsAverageSums(int [,] a)
 {
-    Console.Write("Average column sums: ");
+    Console.Write("Average columns sums: ");
     int sum = 0;
+    double averageSum = 0;
     for(int i = 0; i < a.GetLength(1); i++)
     {
+        sum = 0;
         for(int j = 0; j < a.GetLength(0); j++)
         {
             sum = sum + a[j, i];
         }
-        Console.Write(sum);
+        averageSum = Convert.ToDouble(sum);
+        averageSum = averageSum / a.GetLength(0);
+        Console.Write(averageSum);
         if(i < a.GetLength(1) - 1)
         {
             Console.Write("; ");
